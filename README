@@ -1,0 +1,5 @@
+This is a piece of Rack middleware and example application.
+
+The middleware assumes that the request body contains a fully-formed HTTP request (optionally only if a certain parameter was passed, just as ?ajax) and parses said request into the Rack environment, overriding anything that came from the actual HTTP request.
+
+The example application takes the environment produced by the middleware, constructs an HTTP request from it, and sends that request on to the server specified by the Host header.  A hard-coded or restricted host/port would allow this server to run in production as a proxy onto any HTTP-based API, so that broken HTTP-like clients that only support some HTTP features can proxy onto the real HTTP API.
